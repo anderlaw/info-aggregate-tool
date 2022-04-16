@@ -1,38 +1,106 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  color: #3d3939;
+}
+.app-left{
+  width:200px;
+}
+/* logo section */
+.app-left > .logo-container{
+/* logo section */
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  height: 50px;
+}
+.logo-container > img{
+  height: 34px;
+  margin-top: 8px;
+}
+/* label section */
+.app-left > .label-container{
+  height: calc(100vh - 90px);
+  box-sizing: border-box;
+  border-top: 10px solid #f8f8f8;
+  border-bottom: 10px solid #f8f8f8;
+  overflow-y: auto;
+}
+.label-container > .label-item{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 40px;
+  padding-left: 6px;
+  cursor: pointer;
+  border-bottom: 1px solid #e9e9e9;
+  transition: background-color .4s ease-out,color .4s ease-out;
+  position: relative;
+}
+.delete-label{
+  position: absolute;
+  right: 0px;
+  top: 0;
+  padding: 0 6px;
+  display: none;
+}
+.label-container > .label-item.active,.label-container > .label-item:hover{
+  background-color: #ff9800;
+  color: #FFF;
+}
+.label-item:hover .delete-label{
+  display: block;
+}
+.app-left > .bottom-container{
+  position: fixed;
+  height:40px;
+  width: 200px;
+  bottom: 0px;
+  left: 0;
+}
+.bottom-container > .add-button{
+  height: 100%;
+  line-height: 40px;
+  text-align: center;
+  font-size: 18px;
+  cursor: pointer;
+  user-select: none;
+}
+.bottom-container > .pop-up{
+  position: absolute;
+  box-sizing: border-box;
+  height: 500px;
+  padding: 20px 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  bottom:0px;
+  background-color: #fff;
+  transform: translateY(100%);
+  transition: transform .2s ease-out;
+}
+.bottom-container > .pop-up.open{
+  transform: translateY(0);
+}
+.bottom-container > .pop-up .header{
+  margin-bottom: 10px;
+  text-align: right;
+}
+.form-item{
+  margin-bottom:10px;
+}
+.form-item input{
+  font-size: 16px;
+  padding: 6px 4px;
 }
 
-.App-link {
-  color: #61dafb;
+.app-right{
+  width: calc(100vw - 200px);
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.iframe-container{
+  display: none;
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+.iframe-container.open{
+  display: block;
 }
